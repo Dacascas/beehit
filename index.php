@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: Dacascas
  * Date: 31/01/2016
  * Time: 22:56
@@ -17,14 +16,16 @@ if(isset($_REQUEST['reset'])) {
 }
 
 if($storage->isEmpty()) {
-    $bees = (new BeeBuilder($config))->createBees();
+    $bees = new BeeBuilder($config);
+    $bees->createBees();
     $storage->store($bees);
 } else {
     $bees = $storage->get();
 }
 
 if(isset($_REQUEST['bee'])) {
-    $bees = (new BeeHit($bees))->hit($_REQUEST['bee']);
+    $bees = new BeeHit($bees);
+    $bees = $bees->hit($_REQUEST['bee']);
     $storage->store($bees);
 }
 

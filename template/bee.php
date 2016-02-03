@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dacascas
- * Date: 01/02/2016
- * Time: 07:41
- */
 
 $bee_text = '';
 
@@ -15,7 +9,7 @@ foreach($this->bees->bee as $name_bee => $bees_value) {
         $bee_text .= "<div style='float:left;' align='center'><img src='../image/{$this->bees->config[$name_bee]['image']}' width='100'/><br />";
 
         if($bee['health']) {
-            $bee_text .= "<input type='radio' id='bee' name='bee' value='$name_bee;$bee_key' />";
+            $bee_text .= "<input type='radio' id='bee' name='bee' value='$name_bee;$bee_key' style='display: none'/>";
         }
 
         $bee_text .= "<span>$bee[health]</span></div>";
